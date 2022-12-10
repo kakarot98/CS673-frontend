@@ -2,16 +2,37 @@ import React from 'react';
 import './App.css';
 import Nav from './components/Nav';
 import Login from './components/Login';
-import {PatientContext} from './contexts/PatientContext'
+import { PatientContext } from './contexts/PatientContext'
+import { Route, Routes } from 'react-router-dom';
+import Profile from './components/Profile';
+import Payments from './components/Payments';
+import Communication from './components/Communication';
+import PrivateRoutes from './utils/PrivateRoutes';
 
 function App() {
   const [patientSelect, setPatientSelect] = React.useState(false)
   return (
     <div className="App">
+      <PatientContext.Provider value={{ patientSelect, setPatientSelect }}>
       <Nav />
-      <PatientContext.Provider value={{patientSelect, setPatientSelect}}>
-      <Login />
+
+
+
+      <Routes>
+        <Route path='/' element={<Login />} />
+
+          <Route element={<PrivateRoutes />}>
+            <Route path='/profile' exact element={<Profile />} />
+            <Route path='/communication' exact element={<Communication />} />
+            <Route path='/payments' exact element={<Payments />} />
+          </Route>
+
+        {/* <Route path='/profile' exact element={<Profile />} />
+        <Route path='/communication' exact element={<Communication />} />
+        <Route path='/payments' exact element={<Payments />} /> */}
+      </Routes>
       </PatientContext.Provider>
+
     </div>
   );
 }
