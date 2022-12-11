@@ -7,9 +7,13 @@ import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { PatientContext } from '../contexts/PatientContext';
 
 function Nav() {
+  const { setPatientSelect, setPatientDetails } = React.useContext(PatientContext)
+  const navigate = useNavigate()
+  
   let activeStyle = {textDecoration: 'none', color: 'inherit', backgroundColor: '#2E82F0', padding: '1rem', borderRadius: '4rem'}
   let inActiveStyle = {textDecoration: 'none', color: 'inherit', padding: '1rem'}
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -67,7 +71,9 @@ function Nav() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            Change patient
+           <Button variant='solid' color='secondary' onClick={(e)=> {setPatientSelect(false); setPatientDetails({})}}>
+            <Typography>Change Patient</Typography>
+            </Button>
             {/* <Tooltip title="Change Patient">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

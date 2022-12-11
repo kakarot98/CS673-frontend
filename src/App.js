@@ -11,9 +11,16 @@ import PrivateRoutes from './utils/PrivateRoutes';
 
 function App() {
   const [patientSelect, setPatientSelect] = React.useState(false)
+  const [patientDetails, setPatientDetails] = React.useState({})
+
+  React.useEffect(()=>{
+    console.log(patientSelect)
+    console.log(patientSelect ? true : false)
+    console.log(patientDetails)
+  }, [patientSelect, patientDetails])
   return (
     <div className="App">
-      <PatientContext.Provider value={{ patientSelect, setPatientSelect }}>
+      <PatientContext.Provider value={{ patientSelect, setPatientSelect, patientDetails, setPatientDetails }}>
       <Nav />
 
 
@@ -26,10 +33,6 @@ function App() {
             <Route path='/communication' exact element={<Communication />} />
             <Route path='/payments' exact element={<Payments />} />
           </Route>
-
-        {/* <Route path='/profile' exact element={<Profile />} />
-        <Route path='/communication' exact element={<Communication />} />
-        <Route path='/payments' exact element={<Payments />} /> */}
       </Routes>
       </PatientContext.Provider>
 
