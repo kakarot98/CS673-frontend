@@ -13,9 +13,9 @@ import { PatientContext } from '../contexts/PatientContext';
 function Nav() {
   const { setPatientSelect, setPatientDetails } = React.useContext(PatientContext)
   const navigate = useNavigate()
-  
-  let activeStyle = {textDecoration: 'none', color: 'inherit', backgroundColor: '#2E82F0', padding: '1rem', borderRadius: '4rem'}
-  let inActiveStyle = {textDecoration: 'none', color: 'inherit', padding: '1rem'}
+
+  let activeStyle = { textDecoration: 'none', color: 'inherit', backgroundColor: '#2E82F0', padding: '1rem', borderRadius: '4rem' }
+  let inActiveStyle = { textDecoration: 'none', color: 'inherit', padding: '1rem' }
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -45,34 +45,34 @@ function Nav() {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Typography
-            variant='h6'
+              variant='h6'
               sx={{ my: 2, color: 'white', display: 'block', pl: 2, pr: 2 }}
             >
-              <NavLink to='/profile' style={({isActive}) => isActive ? activeStyle : inActiveStyle}>
+              <NavLink to='/profile' style={({ isActive }) => isActive ? activeStyle : inActiveStyle}>
                 Profile
               </NavLink>
             </Typography>
             <Typography
-            variant='h6'
+              variant='h6'
               sx={{ my: 2, color: 'white', display: 'block', pl: 2, pr: 2 }}
             >
-              <NavLink to='/communication' style={({isActive}) => isActive ? activeStyle : inActiveStyle}>
+              <NavLink to='/communication' style={({ isActive }) => isActive ? activeStyle : inActiveStyle}>
                 Communication
               </NavLink>
             </Typography>
             <Typography
-            variant='h6'
+              variant='h6'
               sx={{ my: 2, color: 'white', display: 'block', pl: 2, pr: 2 }}
             >
-              <NavLink to='/payments' style={({isActive}) => isActive ? activeStyle : inActiveStyle}>
+              <NavLink to='/payments' style={({ isActive }) => isActive ? activeStyle : inActiveStyle}>
                 Payment
               </NavLink>
             </Typography>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-           <Button variant='solid' color='secondary' onClick={(e)=> {setPatientSelect(false); setPatientDetails({})}}>
-            <Typography>Change Patient</Typography>
+            <Button variant='solid' color='secondary' onClick={(e) => { setPatientSelect(false); setPatientDetails({}) }}>
+              <Typography>Change Patient</Typography>
             </Button>
             {/* <Tooltip title="Change Patient">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

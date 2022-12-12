@@ -42,8 +42,6 @@ function Login() {
 
   return (
     <div>
-      {/* <button onClick={() => setPatientSelect(prev => { console.log(prev); return !prev })}>Login and proceed further</button>
-      <button onClick={e => fetchPatients()}>Click me</button> */}
       <FormControl sx={{p:'1rem', maxWidth: '80%'}}>
         <FormLabel id="select-patient-label" htmlFor="select-patient-button">
           Patient Name
@@ -65,7 +63,7 @@ function Login() {
                 }}
               >
                 {patientsList.map((patient) => (
-                  <Option key={patient.id} value={patient.firstName}>{capitalize(patient.firstName)}{" "}{capitalize(patient.lastName)}</Option>
+                  <Option key={patient.id} value={patient}>{capitalize(patient.firstName)}{" "}{capitalize(patient.lastName)}</Option>
                 ))}
               </Select>
             </div>
