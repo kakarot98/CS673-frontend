@@ -14,12 +14,11 @@ import FormHelperText from '@mui/joy/FormHelperText';
 import Button from '@mui/joy/Button';
 import Alert from '@mui/material/Alert';
 import { useNavigate } from 'react-router-dom'
+import {capitalize} from '../utils/utilityFunctions'
 
 function Login() {
   const navigate = useNavigate()
-  const capitalize = (s) => {
-    return s[0].toUpperCase() + s.slice(1);
-  }
+  
   const { setPatientSelect, setPatientDetails } = useContext(PatientContext)
   const [patientsList, setPatientsList] = React.useState([])
   const [currentPatient, setCurrentPatient] = React.useState({})
@@ -51,7 +50,7 @@ function Login() {
           <>
             <div className='select-container' style={{ padding: '.5rem', maxHeight: '50vh' }}>
               <Select
-                defaultValue="dog"
+                //defaultValue="dog"
                 placeholder="Choose a patient from the list"
                 size="sm" variant="soft"
                 onChange={(e, newValue) => setCurrentPatient(newValue)}
