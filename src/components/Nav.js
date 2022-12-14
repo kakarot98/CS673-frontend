@@ -11,7 +11,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { PatientContext } from '../contexts/PatientContext';
 
 function Nav() {
-  const { setPatientSelect, setPatientDetails } = React.useContext(PatientContext)
+  const { setPatientSelect, setPatientDetails, resetAllDetails } = React.useContext(PatientContext)
   const navigate = useNavigate()
 
   let activeStyle = { textDecoration: 'none', color: 'inherit', backgroundColor: '#2E82F0', padding: '1rem', borderRadius: '4rem' }
@@ -71,7 +71,7 @@ function Nav() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Button variant='solid' color='secondary' onClick={(e) => { setPatientSelect(false); setPatientDetails({}) }}>
+            <Button variant='solid' color='secondary' onClick={(e) => { resetAllDetails() }}>
               <Typography>Change Patient</Typography>
             </Button>
             {/* <Tooltip title="Change Patient">

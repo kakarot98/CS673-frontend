@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import Nav from './components/Nav';
-import Login from './components/Login';
+import Login from './components/login/Login';
 import { PatientContext } from './contexts/PatientContext'
 import { Route, Routes } from 'react-router-dom';
-import Profile from './components/Profile';
+import Profile from './components/profile/Profile';
 import Payments from './components/Payments';
-import Communication from './components/Communication';
+import Communication from './components/communication/Communication';
 import PrivateRoutes from './utils/PrivateRoutes';
 
 function App() {
@@ -15,6 +15,13 @@ function App() {
   const [doctorDetails, setDoctorDetails] = React.useState({})
   const [doctorSelect, setDoctorSelect] = React.useState(false)
 
+  const resetAllDetails = () => {
+    setPatientSelect(false)
+    setDoctorSelect(false)
+    setPatientDetails({})
+    setDoctorDetails({})
+  }
+
   React.useEffect(() => {
     console.log(patientSelect)
     console.log(patientSelect ? true : false)
@@ -22,7 +29,7 @@ function App() {
   }, [patientSelect, patientDetails])
   return (
     <div className="App">
-      <PatientContext.Provider value={{ patientSelect, setPatientSelect, patientDetails, setPatientDetails, doctorDetails, setDoctorDetails, doctorSelect, setDoctorSelect }}>
+      <PatientContext.Provider value={{ patientSelect, setPatientSelect, patientDetails, setPatientDetails, doctorDetails, setDoctorDetails, doctorSelect, setDoctorSelect, resetAllDetails }}>
         <Nav />
         <Routes>
           <Route path='/' element={<Login />} />

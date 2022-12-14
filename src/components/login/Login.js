@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import axios from 'axios'
-import { PatientContext } from '../contexts/PatientContext'
+import { PatientContext } from '../../contexts/PatientContext'
 import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import Paper from '@mui/material/Paper';
@@ -14,7 +14,7 @@ import FormHelperText from '@mui/joy/FormHelperText';
 import Button from '@mui/joy/Button';
 import Alert from '@mui/material/Alert';
 import { useNavigate } from 'react-router-dom'
-import {capitalize} from '../utils/utilityFunctions'
+import {capitalize} from '../../utils/utilityFunctions'
 
 function Login() {
   const navigate = useNavigate()

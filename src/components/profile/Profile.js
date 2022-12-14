@@ -1,5 +1,5 @@
 import React from 'react'
-import { PatientContext } from '../contexts/PatientContext'
+import { PatientContext } from '../../contexts/PatientContext'
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
