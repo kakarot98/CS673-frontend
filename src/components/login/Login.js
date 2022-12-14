@@ -11,7 +11,7 @@ import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import FormHelperText from '@mui/joy/FormHelperText';
-import Button from '@mui/joy/Button';
+import {Button} from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { useNavigate } from 'react-router-dom'
 import {capitalize} from '../../utils/utilityFunctions'
@@ -40,19 +40,20 @@ function Login() {
   }, [])
 
   return (
-    <div>
-      <FormControl sx={{p:'1rem', maxWidth: '80%'}}>
-        <FormLabel id="select-patient-label" htmlFor="select-patient-button">
-          Patient Name
-        </FormLabel>
+    <div style={{marginTop: '100px'}}>
+      
 
         {patientsList.length > 0 ? (
           <>
-            <div className='select-container' style={{ padding: '.5rem', maxHeight: '50vh' }}>
+          <FormControl sx={{p:'1rem', width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+        <FormLabel id="select-patient-label" htmlFor="select-patient-button">
+          <h2>Patient Name: </h2>
+        </FormLabel>
+            <div className='select-container' style={{ padding: '.5rem', maxHeight: '50vh', width: '400px' }}>
               <Select
                 //defaultValue="dog"
                 placeholder="Choose a patient from the list"
-                size="sm" variant="soft"
+                size="lg" variant="soft"
                 onChange={(e, newValue) => setCurrentPatient(newValue)}
                 slotProps={{
                   button: {
@@ -66,15 +67,16 @@ function Login() {
                 ))}
               </Select>
             </div>
-            <div className="login-btn">
-              <Button size="md" variant='solid' color="primary" onClick={onSubmit}>
+            <div className="login-btn" style={{padding: '1rem'}}>
+            <Button variant='contained' color="primary" onClick={onSubmit}>
                 Submit
               </Button>
             </div>
+            </FormControl>
           </>
-        ) : (<Typography>Loading...</Typography>)}
+        ) : (<h2>Loading...</h2>)}
 
-      </FormControl>
+  
     </div>
 
   )
