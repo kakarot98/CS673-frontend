@@ -32,17 +32,18 @@ const SelectDoctor = () => {
     }
 
     return (
-        <FormControl sx={{ p: '1rem', maxWidth: '80%' }}>
+        <FormControl sx={{ p: '1rem', maxWidth: '80%', margin: '2rem' }}>
             <FormLabel id="select-doctor-label" htmlFor="select-doctor-button">
-                Doctor Name
+                <h1>Doctor Name</h1>
             </FormLabel>
             {doctorsList.length > 0 ? (
-                <>
-                    <div className='select-container' style={{ padding: '.5rem', maxHeight: '50vh' }}>
+                <div style={{display: 'flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
+                    <div className='select-container' style={{ padding: '.5rem',  width: '25rem' }}>
                         <Select
+                        sx={{border: '2px solid black'}}
                             //defaultValue="dog"
                             placeholder="Choose a doctor from the list"
-                            size="sm" variant="soft"
+                            size="md" variant="soft"
                             onChange={(e, newValue) => setSelectDoctor(newValue)}
                             slotProps={{
                                 button: {
@@ -57,11 +58,11 @@ const SelectDoctor = () => {
                         </Select>
                     </div>
                     <div className="set-doctor-btn">
-                        <Button size="md" variant='solid' color="primary" onClick={onSetDoctor}>
+                        <Button size="md" variant='contained' color="primary" onClick={onSetDoctor}>
                             Set as your doctor
                         </Button>
                     </div>
-                </>
+                </div>
             ) : (<Typography>Loading...</Typography>)}
         </FormControl>
     )

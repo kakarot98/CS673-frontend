@@ -52,6 +52,7 @@ function Login() {
             <div className='select-container' style={{ padding: '.5rem', maxHeight: '50vh', width: '400px' }}>
               <Select
                 //defaultValue="dog"
+                sx={{border: '2px solid black'}}
                 placeholder="Choose a patient from the list"
                 size="lg" variant="soft"
                 onChange={(e, newValue) => setCurrentPatient(newValue)}

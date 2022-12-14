@@ -47,7 +47,7 @@ const MessageDialog = ({ open, setOpen, patientDetails }) => {
                     <DialogContentText>
                         Type your message below
                     </DialogContentText>
-                    <TextareaAutosize minRows={5} style={{ minWidth: "30rem", width: "100%" }} autoFocus id="message" label="Message" value={message} onChange={(e) => setMessage(e.target.value)} />
+                    <TextareaAutosize minRows={5} style={{ minWidth: "30rem", width: "100%", marginTop: '2rem' }} autoFocus id="message" label="Message" value={message} onChange={(e) => setMessage(e.target.value)} />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
