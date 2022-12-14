@@ -64,9 +64,9 @@ function Nav() {
               variant='h6'
               sx={{ my: 2, color: 'white', display: 'block', pl: 2, pr: 2 }}
             >
-              <NavLink to='/payments' style={({ isActive }) => isActive ? activeStyle : inActiveStyle}>
+              {/* <NavLink to='/payments' style={({ isActive }) => isActive ? activeStyle : inActiveStyle}>
                 Payment
-              </NavLink>
+              </NavLink> */}
             </Typography>
           </Box>
 

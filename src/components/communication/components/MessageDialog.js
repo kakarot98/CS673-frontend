@@ -9,7 +9,7 @@ import { Button } from '@mui/material';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import emailjs from '@emailjs/browser';
 
-const MessageDialog = ({ open, setOpen, handleClickOpen, patientDetails }) => {
+const MessageDialog = ({ open, setOpen, patientDetails }) => {
     const [message, setMessage] = useState('')
 
     const handleSend = (e) => {
@@ -42,7 +42,7 @@ const MessageDialog = ({ open, setOpen, handleClickOpen, patientDetails }) => {
     return (
         <div>
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Subscribe</DialogTitle>
+                <DialogTitle>Send Message</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                         Type your message below
