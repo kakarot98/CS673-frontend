@@ -11,14 +11,16 @@ import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import FormHelperText from '@mui/joy/FormHelperText';
-import {Button} from '@mui/material';
+import { Button } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { useNavigate } from 'react-router-dom'
-import {capitalize} from '../../utils/utilityFunctions'
+import { capitalize } from '../../utils/utilityFunctions'
+import { Audio } from 'react-loader-spinner'
+//import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function Login() {
   const navigate = useNavigate()
-  
+
   const { setPatientSelect, setPatientDetails } = useContext(PatientContext)
   const [patientsList, setPatientsList] = React.useState([])
   const [currentPatient, setCurrentPatient] = React.useState({})
@@ -28,11 +30,11 @@ function Login() {
   }
 
   const onSubmit = () => {
-    if (!(Object.keys(currentPatient)===0)) {
+    if (!(Object.keys(currentPatient) === 0)) {
       setPatientDetails(currentPatient)
       setPatientSelect(true)
       navigate('/profile')
-    }    
+    }
   }
 
   React.useEffect(() => {
@@ -40,19 +42,19 @@ function Login() {
   }, [])
 
   return (
-    <div style={{marginTop: '100px'}}>
-      
+    <div style={{ marginTop: '100px' }}>
 
-        {patientsList.length > 0 ? (
-          <>
-          <FormControl sx={{p:'1rem', width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-        <FormLabel id="select-patient-label" htmlFor="select-patient-button">
-          <h2>Patient Name: </h2>
-        </FormLabel>
+
+      {patientsList.length > 0 ? (
+        <>
+          <FormControl sx={{ p: '1rem', width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+            <FormLabel id="select-patient-label" htmlFor="select-patient-button">
+              <h2>Patient Name: </h2>
+            </FormLabel>
             <div className='select-container' style={{ padding: '.5rem', maxHeight: '50vh', width: '400px' }}>
               <Select
                 //defaultValue="dog"
-                sx={{border: '2px solid black'}}
+                sx={{ border: '2px solid black' }}
                 placeholder="Choose a patient from the list"
                 size="lg" variant="soft"
                 onChange={(e, newValue) => setCurrentPatient(newValue)}
@@ -68,16 +70,28 @@ function Login() {
                 ))}
               </Select>
             </div>
-            <div className="login-btn" style={{padding: '1rem'}}>
-            <Button variant='contained' color="primary" onClick={onSubmit}>
+            <div className="login-btn" style={{ padding: '1rem' }}>
+              <Button variant='contained' color="primary" onClick={onSubmit}>
                 Submit
               </Button>
             </div>
-            </FormControl>
-          </>
-        ) : (<h2>Loading...</h2>)}
+          </FormControl>
+        </>
+      ) : (
+        <div style={{ height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Audio
+            height="150"
+            width="150"
+            radius="10"
+            color='blue'
+            ariaLabel='three-dots-loading'
+            wrapperStyle
+            wrapperClass
+          />
+        </div>
+      )}
 
-  
+
     </div>
 
   )

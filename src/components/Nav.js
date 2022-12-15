@@ -11,7 +11,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { PatientContext } from '../contexts/PatientContext';
 
 function Nav() {
-  const { setPatientSelect, setPatientDetails, resetAllDetails } = React.useContext(PatientContext)
+  const { setPatientSelect, setPatientDetails, resetAllDetails, patientDetails, patientSelect } = React.useContext(PatientContext)
   const navigate = useNavigate()
 
   let activeStyle = { textDecoration: 'none', color: 'inherit', backgroundColor: '#2E82F0', padding: '1rem', borderRadius: '4rem' }
@@ -70,10 +70,17 @@ function Nav() {
             </Typography>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Button variant='solid' color='secondary' onClick={(e) => { resetAllDetails() }}>
-              <Typography>Change Patient</Typography>
-            </Button>
+          <Box sx={{ display: 'flex', flexGrow: 0, flexDirection: 'row-reverse !important' }}>
+            {patientSelect ? (
+              <>
+                {/* <Button variant='solid' color='primary' onClick={(e) => { resetAllDetails() }}>
+                  <Typography>Change Patient</Typography>
+                </Button> */}
+                <Button variant='solid' color='secondary' onClick={(e) => { resetAllDetails() }}><Typography variant='h5'>{patientDetails.firstName}{" "}{patientDetails.lastName}</Typography></Button>
+              </>
+            ) : <></>}
+
+
             {/* <Tooltip title="Change Patient">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

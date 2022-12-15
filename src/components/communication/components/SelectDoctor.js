@@ -5,6 +5,7 @@ import Option from '@mui/joy/Option';
 import { PatientContext } from '../../../contexts/PatientContext';
 import axios from 'axios';
 import { capitalize } from '../../../utils/utilityFunctions';
+import { Audio } from 'react-loader-spinner'
 
 const SelectDoctor = () => {
     const { setDoctorDetails, doctorDetails, doctorSelect, setDoctorSelect } = useContext(PatientContext)
@@ -63,7 +64,19 @@ const SelectDoctor = () => {
                         </Button>
                     </div>
                 </div>
-            ) : (<Typography>Loading...</Typography>)}
+            ) : (
+                <div style={{ height: '100%', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Audio
+            height="150"
+            width="150"
+            radius="10"
+            color='blue'
+            ariaLabel='three-dots-loading'
+            wrapperStyle
+            wrapperClass
+          />
+        </div>
+            )}
         </FormControl>
     )
 }
